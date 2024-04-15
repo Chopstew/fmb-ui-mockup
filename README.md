@@ -33,7 +33,7 @@ Anhand der folgenden Schritte kann das Projekt lokal eingerichtet werden
 2. Dieses Repository lokal klonen:
 
    ```shell
-   git clone
+   git clone https://github.com/Chopstew/fmb-ui-mockup.git
    ```
 
 3. Pfad auf das geklonte Repository wechseln:
