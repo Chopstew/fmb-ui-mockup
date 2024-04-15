@@ -1,0 +1,130 @@
+<!-- SingingThreeComponent -->
+
+<div class="header-grid">
+  <!-- HEADER SECTION -->
+  <div class="chat-btn-container" (click)="showHelp()">
+    <button mat-mini-fab color="warn">
+      <mat-icon>help_outline</mat-icon>
+    </button>
+  </div>
+  <div class="video-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleCamera()" [ngStyle]="{'color': isCameraOn ? '#706743' : 'red'}">
+      <mat-icon>
+        {{ isCameraOn ? 'videocam' : 'videocam_off' }}
+      </mat-icon>
+    </button>
+  </div>
+  <div class="mic-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleMic()" [ngStyle]="{'color': isMicOn ? '#706743' : 'red'}">
+      <mat-icon>
+        {{ isMicOn ? 'mic' : 'mic_off' }}
+      </mat-icon>
+    </button>
+  </div>
+  <div class="mixer-btn-container">
+    <button mat-raised-button class="btn-block" (click)="showMixer()">
+      Klang
+    </button>
+  </div>
+  <div class="sheet-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleNotes()">
+      <mat-icon>
+        {{ isNotesOn ? 'supervisor_account' : 'queue_music' }}
+      </mat-icon>
+    </button>
+  </div>
+  <div class="leave-btn-container">
+    <button mat-raised-button class="btn-block" (click)="doLeave()">
+      Probe verlassen
+    </button>
+  </div>
+  <div class="logout-btn-container">
+    <button mat-raised-button color="warn" class="header-button" (click)="doLogout()">
+      Abmelden
+    </button>
+  </div>
+</div>
+
+<!-- MAIN VIEW SECTION -->
+<div class="main-container">
+  <mat-card class="card-element">
+    <!-- isNotesOn == false -->
+    <ng-template [ngIf]="!isNotesOn">
+      <div class="upper-container together">
+        <div style="width: 100%">
+          <as-split
+            unit="percent"
+            [direction]="direction"
+            gutterAriaLabel="adjustable divider between two views"
+            (dragEnd)="dragEndPercent($event)"
+            #split="asSplit"
+          >
+            <as-split-area size="50" maxSize="75" #area1="asSplitArea">
+              <img class="video-feed" alt="sample gif of people singing together" src="/assets/together_1.jpeg">
+            </as-split-area>
+            <as-split-area size="50" maxSize="75" #area2="asSplitArea">
+              <img class="video-feed" alt="sample gif of conductor video feed" src="/assets/conductor_2.jpg">
+            </as-split-area>
+          </as-split>
+        </div>
+      </div>
+      <div class="lower-container">
+        <ng-template [ngIf]="isCameraOn">
+          <div class="notes-right-container">
+            <img class="contained-img" src="/assets/notes_1.png" alt="Depiction of musical notes">
+          </div>
+          <div class="self-left-container">
+            <webcam (initError)="handleInitError($event)"></webcam>
+            <!--<img class="contained-img" src="/assets/singer_1.jpg" alt="Placeholder depiction of own video feed">-->
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="!isCameraOn">
+          <div class="notes-right-container camera-off">
+            <img class="contained-img camera-off" src="/assets/notes_1.png" alt="Depiction of musical notes">
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+
+    <!-- isNotesOn == true -->
+    <ng-template [ngIf]="isNotesOn">
+      <div class="upper-container">
+        <div style="width: 100%">
+          <as-split
+            unit="percent"
+            [direction]="direction"
+            gutterAriaLabel="adjustable divider between two views"
+            (dragEnd)="dragEndPercent($event)"
+            #split="asSplit"
+          >
+            <as-split-area size="50" maxSize="75" #area1="asSplitArea">
+              <img class="video-feed" alt="sample gif of people singing together" src="/assets/together_1.jpeg">
+            </as-split-area>
+            <as-split-area size="50" maxSize="75" #area2="asSplitArea">
+              <img class="video-feed" alt="sample gif of conductor video feed" src="/assets/conductor_2.jpg">
+            </as-split-area>
+          </as-split>
+        </div>
+      </div>
+      <div class="lower-container">
+        <ng-template [ngIf]="isCameraOn">
+          <div class="notes-right-container">
+            <img class="contained-img" src="/assets/notes_2.jpg" alt="Depiction of musical notes">
+          </div>
+          <div class="self-left-container">
+            <webcam (initError)="handleInitError($event)"
+                    class="webcam-block"
+                    [height]="120"
+            ></webcam>
+            <!--<img class="contained-img" src="/assets/singer_1.jpg" alt="Placeholder depiction of own video feed">-->
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="!isCameraOn">
+          <div class="notes-right-container camera-off">
+            <img class="contained-img camera-off" src="/assets/notes_2.jpg" alt="Depiction of musical notes">
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+  </mat-card>
+</div>

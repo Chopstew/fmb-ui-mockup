@@ -1,0 +1,10 @@
+
+.main-container {
+  text-align: center;
+}
+img {
+  object-fit: contain;
+  border-radius: 10px;
+  width: auto;
+  max-height: 600px;
+}

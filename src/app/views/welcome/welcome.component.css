@@ -1,0 +1,30 @@
+@import "../../shared/views.shared.css";
+
+.card-element {
+  display: inline-block;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  text-align: center;
+  margin-top: 50px;
+}
+.some-header {
+  text-align: center;
+  display: block;
+  margin-bottom: 20px;
+}
+.clickable {
+  padding: 5px 20px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: lightgrey;
+  border: black solid 1px;
+  border-radius: 10px;
+  font-size: x-large;
+  color: #333;
+  margin-bottom: 10px
+}
+.clickable:hover {
+  cursor: pointer;
+}

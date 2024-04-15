@@ -1,0 +1,85 @@
+@import "../../shared/views.shared.css";
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.main-container {
+  padding: 0 1% 0 1%;
+  justify-content: space-around;
+  align-content: center;
+  height: 100%;
+}
+.card-element {
+  display: grid;
+  width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  grid-template: auto auto / auto;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  color: white;
+}
+.upper-container {
+  width: 80%;
+  margin: 5px auto 20px;
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+}
+.upper-container.not-together {
+  width: 95%;
+  margin: 5px auto 20px;
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+}
+.self-left-container {
+  display: inline-block;
+  width: 100%;
+  max-height: 130px;
+  grid-column: 1;
+  grid-row: 1;
+}
+.notes-right-container {
+  display: inline-block;
+  text-align: center;
+  grid-column: 2;
+  grid-row: 1;
+  padding-right: 10px;
+}
+.notes-right-container.camera-off {
+  display: inline-block;
+  grid-column: 1 / span 2;
+  padding-right: 0;
+  grid-row: 1;
+  max-width: 100%;
+  text-align: center;
+}
+.video-feed {
+  width: 95%;
+  border-radius: 10px;
+}
+.contained-img {
+  width: 100%;
+  border-radius: 10px;
+}
+.contained-img.camera-off {
+  width: 80%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.contained-img.note-mode {
+  width: 80%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.webcam-block {
+  display: block;
+  object-fit: scale-down;
+  border-radius: 10px;
+  width: 100%;
+  height: auto;
+}

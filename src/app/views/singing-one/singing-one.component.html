@@ -1,0 +1,147 @@
+<!-- SingingOneComponent -->
+
+<div class="header-grid">
+  <!-- HEADER SECTION -->
+  <div class="chat-btn-container" (click)="showChat()">
+    <button mat-mini-fab color="accent" matTooltip="Chat anzeigen" [matTooltipShowDelay]="500"><mat-icon>forum</mat-icon></button>
+  </div>
+
+  <div class="react-btn-container">
+    <button mat-mini-fab color="accent" matTooltip="Reaktionen"[matMenuTriggerFor]="reacts" [matTooltipShowDelay]="500"><mat-icon>insert_emoticon</mat-icon></button>
+    <mat-menu #reacts="matMenu">
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': 😄😄')"><mat-icon style="color: gold">insert_emoticon</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': ❤️️❤️')"><mat-icon style="color: crimson">favorite</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': ❓❓')"><mat-icon style="color: lightskyblue">help</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': 🤚🤚')"><mat-icon style="color: gold">pan_tool</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': 👍👍')"><mat-icon style="color: gold">thumb_up</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': 👎👎')"><mat-icon style="color: gold">thumb_down</mat-icon></button>
+      <button mat-menu-item class="react-btn" (click)="openSnackBar(': 🏳️️🏳️')"><mat-icon style="color: coral">flag</mat-icon></button>
+    </mat-menu>
+  </div>
+
+  <div class="volume-sld-container gray-bkg">
+    <div class="slider-text">Deine Lautstärke</div>
+    <mat-slider color="accent" class="volume-slider" matTooltip="Lautstärke deiner eigenen Stimme" [matTooltipShowDelay]="500">
+      <input matSliderThumb value="80">
+    </mat-slider>
+  </div>
+
+  <div class="video-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleCamera()" [ngStyle]="{'color': isCameraOn ? '#706743' : 'red'}" matTooltip="{{ isCameraOn ? 'Kamera ausschalten' : 'Kamera einschalten' }}" [matTooltipShowDelay]="500"><mat-icon>{{ isCameraOn ? 'videocam' : 'videocam_off' }}</mat-icon></button>
+  </div>
+
+  <div class="mic-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleMic()" [ngStyle]="{'color': isMicOn ? '#706743' : 'red'}" matTooltip="{{ isMicOn ? 'Mikrofon ausschalten' : 'Mikrofon einschalten' }}" [matTooltipShowDelay]="500">
+      <mat-icon>
+        {{ isMicOn ? 'mic' : 'mic_off' }}
+      </mat-icon>
+    </button>
+  </div>
+
+  <div class="mixer-btn-container">
+    <button mat-raised-button class="btn-block" (click)="showMixer()" matTooltip="Klangbild bearbeiten" [matTooltipShowDelay]="500">Klang</button>
+  </div>
+
+  <div class="sheet-btn-container">
+    <button mat-mini-fab color="accent" (click)="toggleNotes()" matTooltip="{{ isNotesOn ? 'Zusammenmodus' : 'Notenmodus' }}" [matTooltipShowDelay]="500">
+      <mat-icon>
+        {{ isNotesOn ? 'supervisor_account' : 'queue_music' }}
+      </mat-icon>
+    </button>
+  </div>
+
+  <div class="monitor-sld-container gray-bkg">
+    <div class="slider-text">Gesamtlautstärke</div>
+    <mat-slider color="accent" class="volume-slider" matTooltip="Gesamtlautstärke" [matTooltipShowDelay]="500">
+      <input matSliderThumb value="55">
+    </mat-slider>
+  </div>
+
+  <div class="leave-btn-container">
+    <button mat-raised-button class="btn-block" (click)="doLeave()">Probe verlassen</button>
+  </div>
+
+  <div class="logout-btn-container">
+    <button mat-raised-button color="warn" class="header-button" (click)="doLogout()">Abmelden</button>
+  </div>
+</div>
+
+<!-- MAIN VIEW SECTION -->
+<div class="main-container">
+  <mat-card class="card-element">
+    <!-- isNotesOn == false -->
+    <ng-template [ngIf]="!isNotesOn">
+      <div class="upper-container">
+        <div style="width: 100%">
+          <as-split
+            unit="percent"
+            [direction]="direction"
+            gutterAriaLabel="adjustable divider between two views"
+            (dragEnd)="dragEndPercent($event)"
+            #split="asSplit"
+            matTooltip="Verschieben, um Bildgrössen anzupassen" [matTooltipShowDelay]="500"
+          >
+            <as-split-area size="50" maxSize="75" #area1="asSplitArea">
+              <img class="video-feed" alt="sample gif of people singing together" src="/assets/together_1.jpeg">
+            </as-split-area>
+            <as-split-area size="50" maxSize="75" #area2="asSplitArea">
+              <img class="video-feed" alt="sample gif of conductor video feed" src="/assets/conductor_2.jpg">
+            </as-split-area>
+          </as-split>
+        </div>
+      </div>
+      <div class="lower-container">
+        <ng-template [ngIf]="isCameraOn">
+          <div class="notes-right-container">
+            <img class="contained-img" src="/assets/notes_3.png" alt="Depiction of musical notes">
+          </div>
+          <div class="self-left-container">
+            <img class="contained-img" src="/assets/singer_1.jpg" alt="Placeholder depiction of own video feed">
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="!isCameraOn">
+          <div class="notes-right-container camera-off">
+            <img class="contained-img camera-off" src="/assets/notes_3.png" alt="Depiction of musical notes">
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+
+    <!-- isNotesOn == true -->
+    <ng-template [ngIf]="isNotesOn">
+      <div class="upper-container not-together">
+        <div style="width: 100%">
+          <as-split
+            unit="percent"
+            [direction]="direction"
+            gutterAriaLabel="adjustable divider between two views"
+            (dragEnd)="dragEndPercent($event)"
+            #split="asSplit"
+          >
+            <as-split-area size="50" maxSize="75" #area1="asSplitArea">
+              <img class="video-feed" alt="sample of people singing together" src="/assets/together_1.jpeg">
+            </as-split-area>
+            <as-split-area size="50" maxSize="75" #area2="asSplitArea">
+              <img class="video-feed" alt="sample of conductor video feed" src="/assets/conductor_2.jpg">
+            </as-split-area>
+          </as-split>
+        </div>
+      </div>
+      <div class="lower-container">
+        <ng-template [ngIf]="isCameraOn">
+          <div class="notes-right-container">
+            <img class="contained-img" src="/assets/notes_2.jpg" alt="Depiction of musical notes">
+          </div>
+          <div class="self-left-container">
+            <img class="contained-img" src="/assets/singer_1.jpg" alt="Placeholder depiction of own video feed">
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="!isCameraOn">
+          <div class="notes-right-container camera-off">
+            <img class="contained-img camera-off" src="/assets/notes_2.jpg" alt="Depiction of musical notes">
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+  </mat-card>
+</div>

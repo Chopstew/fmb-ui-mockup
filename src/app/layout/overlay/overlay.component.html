@@ -1,0 +1,60 @@
+<div class="dialog-grid">
+  <div class="btn-left-grid">
+    <button mat-mini-fab color="warn" (click)="onNoClick()" cdkFocusRegionStart cdkFocusInitial>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div class="reverb-switch">
+    <mat-slide-toggle color="warn"
+                      style="transform: scale(1.4)"
+                      [(ngModel)]="isReverbOn"
+                      matTooltip="{{ isReverbOn ? 'Künstlichen Hall ausschalten' : 'Künstlichen Hall einschalten' }}"
+                      [matTooltipShowDelay]="500"
+    >
+      Künstlicher Hall
+    </mat-slide-toggle>
+  </div>
+  <div class="reverb-slider">
+    <mat-slider color="warn"
+                style="width: 95%"
+                [disabled]="!isReverbOn"
+                matTooltip="Grösse des Raumes verstellen"
+                [matTooltipShowDelay]="500"
+    >
+      <input matSliderThumb value="10">
+    </mat-slider>
+  </div>
+  <div class="btn-right-grid">
+    <button mat-mini-fab color="positive" (click)="onYesClick()" cdkFocusRegionEnd>
+      <mat-icon>check</mat-icon>
+    </button>
+  </div>
+
+  <span class="draggable-box piano" cdkDrag>
+    <img class="piano-img" alt="simple drawing of a piano" src="/assets/piano_1.png">
+  </span>
+
+  <span class="draggable-box soprano" cdkDrag>
+    <p>
+      Sopran
+    </p>
+  </span>
+  <span class="draggable-box alto" cdkDrag>
+    <p>
+      Alt
+    </p>
+  </span>
+  <span class="draggable-box tenor" cdkDrag>
+    <p>
+      Tenor
+    </p>
+  </span>
+  <span class="draggable-box bass" cdkDrag>
+    <p>
+      Bass
+    </p>
+  </span>
+  <div class="head-placement">
+    <img class="head-img" alt="top view of a person's head" src="/assets/head_1.png">
+  </div>
+</div>

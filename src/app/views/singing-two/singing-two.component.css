@@ -1,0 +1,111 @@
+@import "../../shared/views.shared.css";
+
+h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.main-container {
+  padding: 0 1% 0 1%;
+  justify-content: space-around;
+  align-content: center;
+  height: 100%;
+}
+.card-element {
+  display: grid;
+  width: 84%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  grid-template: auto auto / auto;
+  justify-content: space-evenly;
+  align-content: space-evenly;
+  color: white;
+}
+.upper-container {
+  max-width: 95%;
+  height: auto;
+  margin: 5px auto 20px;
+  display: flex;
+  grid-column: 1;
+  grid-row: 1;
+}
+.video-feed {
+  width: 95%;
+  border-radius: 10px;
+}
+.contained-img {
+  width: 100%;
+  border-radius: 10px;
+}
+.contained-img.camera-off {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+.contained-img.note-mode {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+}
+.lower-feedback-container {
+  display: grid;
+  grid-template: auto auto / 18% 82%;
+  object-fit: cover;
+  grid-column: 1;
+  grid-row: 2;
+  align-items: center;
+  justify-content: space-between;
+  grid-column-gap: 10px;
+  margin-left: 1%;
+  margin-right: 1%;
+  min-height: 145px;
+}
+.feedback-right-container {
+  display: inline-block;
+  text-align: center;
+  grid-column: 2;
+  grid-row: 1;
+  padding-right: 10px;
+}
+.feedback-right-container.camera-off {
+  display: inline-block;
+  grid-column: 1 / span 2;
+  padding-right: 0;
+  grid-row: 1;
+  max-width: 100%;
+  text-align: center;
+}
+.feedback-left-container {
+  display: inline-block;
+  grid-column: 1;
+  grid-row: 1;
+}
+.written-feedback-container {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  display: grid;
+  grid-template: auto auto auto auto auto auto auto / 5% 95%;
+  row-gap: 10px;
+  justify-content: center;
+  align-content: center;
+  margin: 0 10% 12px;
+  padding: 10px;
+  background-color: grey;
+  border-radius: 10px;
+}
+.icon-style {
+  color: gold;
+  text-align: center;
+}
+.feedback-text {
+  font-size: large;
+  color: white;
+  text-align: left;
+}
+.common-divider {
+  margin: 0;
+  width: 100%;
+  color: #333;
+  background-color: #333;
+}

@@ -1,0 +1,40 @@
+<!-- src/app/login/login.component.html -->
+
+<div class="center">
+  <mat-card class="card-element">
+    <mat-card-header class="login-header">
+      <mat-card-title style="font-size: xx-large">{{ isLogin ? 'Anmelden' : 'Registrieren' }}</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="loginForm">
+      <mat-card-content>
+        <div>
+          <mat-form-field class="login-input" color="accent">
+            <mat-label>Benutzername</mat-label>
+            <input matInput formControlName="username">
+          </mat-form-field>
+        </div>
+
+        <div>
+          <mat-form-field class="login-input" color="accent">
+            <mat-label>Passwort</mat-label>
+            <input matInput type="password" formControlName="password">
+          </mat-form-field>
+        </div>
+      </mat-card-content>
+
+      <button mat-raised-button color="primary" class="btn-block" routerLinkActive="active" [disabled]="loginForm.invalid" (click)="doAction()">
+        {{ isLogin ? 'Anmelden' : 'Registrieren' }}
+      </button>
+
+      <mat-divider class="common-divider"></mat-divider>
+
+      <p class="login-message">
+        {{ isLogin ? 'Noch nicht registriert?' : 'Bereits registriert?' }}
+      </p>
+
+      <button mat-raised-button color="primary" class="btn-block" (click)="toggleForm();">
+        {{ isLogin ? 'Registrieren' : 'Anmelden' }}
+      </button>
+    </form>
+  </mat-card>
+</div>

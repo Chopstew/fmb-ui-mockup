@@ -1,0 +1,35 @@
+<!-- src/app/login/login.component.html -->
+
+<div class="center">
+  <mat-card class="card-element">
+    <mat-card-header class="some-header">
+      <mat-card-title style="font-size: xx-large">Hallo{{getGreeting()}}</mat-card-title>
+    </mat-card-header>
+    <mat-form-field color="accent">
+      <mat-label>Mein Register:</mat-label>
+      <mat-select [(value)]="selectedRegister" placeholder="Mode">
+        <mat-option value="Sopran">Sopran</mat-option>
+        <mat-option value="Alto">Alto</mat-option>
+        <mat-option value="Tenor">Tenor</mat-option>
+        <mat-option value="Bass">Bass</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h3>
+      Verfügbare Proben
+    </h3>
+    <div class="clickable" (click)="joinOne()">
+      Probe 1 (Hauptversion)
+    </div>
+    <div class="clickable" (click)="joinTwo()">
+      Probe 2 (Feedbackmodus)
+    </div>
+    <div class="clickable" (click)="joinThree()" style="margin-bottom: 0">
+      Probe 3 (Webcam)
+    </div>
+  </mat-card>
+  <div class="center" style="width: 12%; margin: 20px auto 0;">
+    <button mat-raised-button color="warn" (click)="doLogout()">
+      Logout
+    </button>
+  </div>
+</div>

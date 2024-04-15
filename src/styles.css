@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css";
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+
+.main-html {
+  background-image: linear-gradient(to bottom right, #0B1E21, #0B1E21, #133337);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  /*background-color: #131723;*/
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
