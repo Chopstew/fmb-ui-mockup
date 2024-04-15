@@ -1,5 +1,4 @@
 # fmb-ui-mockup
-## 1. Über dieses Repository
 Dieser Funky-Prototyp wurde im Rahmen der Bachelorarbeit "Verteiltes Musizieren:
 Eine Exploration der Bedürfnisse, Anforderungen und potenziellen Lösungen" erstellt.
 Dazu wurde Angular verwendet, um eine möglichst realitätsnahe Darstellung zu erreichen.
@@ -12,8 +11,8 @@ auf eine Verwendung in Onlineproben eines Chores abgestimmt sein.
 <br>
 **Dieses Repository kann öffentlich eingesehen werden.**
 
-## 2. Lokale Ausführung des Clients
-### 2.1  Erforderliche Installationen
+## 1. Lokale Ausführung des Clients
+### 1.1  Erforderliche Installationen
 
 Zu Beginn sollte sichergestellt werden, dass die folgenden Abhängigkeiten installiert sind:
 
@@ -26,7 +25,7 @@ Durch das Ausführen des folgenden Befehls in der Shell kann Angular CLI (Comman
 npm install -g @angular/cli
 ```
 
-### 2.2 Einrichten
+### 1.2 Einrichten
 
 Anhand der folgenden Schritte kann das Projekt lokal eingerichtet werden
 
@@ -61,7 +60,7 @@ Anhand der folgenden Schritte kann das Projekt lokal eingerichtet werden
    ```
 7. Fertig!
 
-## 3. Bilderquellen
+## 2. Bilderquellen
 
 In diesem Client werden Bilder verwendet. Diese sind unter ```src/assets``` aufgeführt.
 
@@ -77,6 +76,6 @@ In diesem Client werden Bilder verwendet. Diese sind unter ```src/assets``` aufg
 - **together_1.jpg** - Screenshot aus https://youtu.be/MGsNmYKgeTA?si=4qsC-EqDx8icBFDn
 - **together_2.jpg** - https://rebeccajlj.com/2020/07/31/teams-together-mode-hyped-or-helpful/
 
-## 4. Literaturverzeichnis
+## 3. Literaturverzeichnis
 
 Ball, R. (2011). Designing Protective Headgear. In W. Karwoski & M. Soares (Hrsg.), *Human Factors and ergonomics in Consumer Products: Uses and Applications* (S. 302-313). Taylor and Francis.
