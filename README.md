@@ -1,4 +1,7 @@
 # fmb-ui-mockup
+
+![funky_full_feedback](https://github.com/Chopstew/fmb-ui-mockup/assets/116070302/25ea4f8a-2118-443d-9e33-1f5f5786a980)
+
 Dieser Funky-Prototyp wurde im Rahmen der Bachelorarbeit "Verteiltes Musizieren:
 Eine Exploration der Bedürfnisse, Anforderungen und potenziellen Lösungen" erstellt.
 Dazu wurde Angular verwendet, um eine möglichst realitätsnahe Darstellung zu erreichen.
